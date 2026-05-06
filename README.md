@@ -1,32 +1,18 @@
-# Cloud Operations Runbook
+<center>
+<h1>Cloud Operations Runbook</h1>
+<p><em>Standardized operational procedures for maintaining enterprise cloud environments.</em></p>
+<img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">&nbsp;<img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS">&nbsp;<img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions">
+</center>
 
-A structured collection of cloud engineering runbooks for common infrastructure and application issues. This repository provides a methodological framework for troubleshooting, root cause analysis, and standardized incident response in cloud-native environments.
+---
 
-[![SRE](https://img.shields.io/badge/SRE-blue?style=for-the-badge&logo=pagerduty&logoColor=white)](https://en.wikipedia.org/wiki/Site_reliability_engineering)
-[![DevOps](https://img.shields.io/badge/DevOps-007ACC?style=for-the-badge&logo=azuredevops&logoColor=white)](https://en.wikipedia.org/wiki/DevOps)
-[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNmZmYiIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZD0iTTYuNzYzIDEwLjAzNnEuMDAyLjQ0Ni4wODguNzFjLjA2NC4xNzYuMTQ0LjM2OC4yNTYuNTc2LjA0LjA2My4wNTYuMTI3LjA1Ni4xODNxLjAwMi4xMi0uMTUyLjI0bC0uNTAzLjMzNWEuNC40IDAgMCAxLS4yMDguMDcycS0uMTItLjAwMi0uMjM5LS4xMTJhMi41IDIuNSAwIDAgMS0uMjg3LS4zNzUgNiA2IDAgMCAxLS4yNDgtLjQ3MXEtLjkzNCAxLjEwMS0yLjM0NyAxLjEwMWMtLjY3IDAtMS4yMDUtLjE5MS0xLjU5Ni0uNTc0cS0uNTg4LS41NzUtLjU5LTEuNTMzYzAtLjY3OC4yMzktMS4yMy43MjYtMS42NDQuNDg3LS40MTUgMS4xMzMtLjYyMyAxLjk1NS0uNjIzLjI3MiAwIC41NTEuMDI0Ljg0Ni4wNjQuMjk2LjA0LjYuMTA0LjkxOC4xNzZ2LS41ODNxLS4wMDEtLjkwOS0uMzc1LTEuMjc3Yy0uMjU1LS4yNDgtLjY4Ni0uMzY3LTEuMy0uMzY3LS4yOCAwLS41NjguMDMxLS44NjMuMTAzcS0uNDQzLjEwNi0uODYyLjI3MmEyIDIgMCAwIDEtLjI4LjEwNC41LjUgMCAwIDEtLjEyNy4wMjNxLS4xNjguMDAyLS4xNjgtLjI0N3YtLjM5MWMwLS4xMjguMDE2LS4yMjQuMDU2LS4yOGEuNi42IDAgMCAxIC4yMjQtLjE2NyA0LjYgNC42IDAgMCAxIDEuMDA1LS4zNiA0LjggNC44IDAgMCAxIDEuMjQ2LS4xNTFjLjk1IDAgMS42NDQuMjE2IDIuMDkxLjY0N3EuNjYuNjQ1LjY2MiAxLjk2M3YyLjU4NnptLTMuMjQgMS4yMTRjLjI2MyAwIC41MzQtLjA0OC44MjItLjE0NGExLjggMS44IDAgMCAwIC43NTgtLjUxIDEuMyAxLjMgMCAwIDAgLjI3Mi0uNTEyYy4wNDctLjE5MS4wOC0uNDIzLjA4LS42OTR2LS4zMzVhNyA3IDAgMCAwLS43MzUtLjEzNiA2IDYgMCAwIDAtLjc1LS4wNDhjLS41MzUgMC0uOTI2LjEwNC0xLjE5LjMyLS4yNjMuMjE1LS4zOS41MTgtLjM5LjkxNyAwIC4zNzUuMDk1LjY1NS4yOTUuODQ2LjE5MS4yLjQ3LjI5Ni44MzguMjk2bTYuNDEuODYyYy0uMTQ0IDAtLjI0LS4wMjQtLjMwNC0uMDgtLjA2NC0uMDQ4LS4xMi0uMTYtLjE2OC0uMzExTDcuNTg2IDUuNTVhMS40IDEuNCAwIDAgMS0uMDcyLS4zMmMwLS4xMjguMDY0LS4yLjE5MS0uMmguNzgzcS4yMjctLjAwMS4zMS4wOGMuMDY1LjA0OC4xMTMuMTYuMTYuMzEybDEuMzQyIDUuMjg0IDEuMjQ1LTUuMjg0cS4wNTgtLjI0LjE1MS0uMzEyYS41NS41NSAwIDAgMSAuMzItLjA4aC42MzhjLjE1MiAwIC4yNTYuMDI1LjMyLjA4LjA2My4wNDguMTIuMTYuMTUxLjMxMmwxLjI2MSA1LjM0OCAxLjM4MS01LjM0OHEuMDc0LS4yNC4xNi0uMzEyYS41Mi41MiAwIDAgMSAuMzExLS4wOGguNzQzYy4xMjcgMCAuMi4wNjUuMi4yIDAgLjA0LS4wMDkuMDgtLjAxNy4xMjhhMSAxIDAgMCAxLS4wNTYuMmwtMS45MjMgNi4xN3EtLjA3Mi4yNC0uMTY4LjMxMWEuNS41IDAgMCAxLS4zMDMuMDhoLS42ODdjLS4xNTEgMC0uMjU1LS4wMjQtLjMyLS4wOC0uMDYzLS4wNTYtLjExOS0uMTYtLjE1LS4zMmwtMS4yMzgtNS4xNDgtMS4yMyA1LjE0Yy0uMDQuMTYtLjA4Ny4yNjQtLjE1LjMyLS4wNjUuMDU2LS4xNzcuMDgtLjMyLjA4em0xMC4yNTYuMjE1Yy0uNDE1IDAtLjgzLS4wNDgtMS4yMjktLjE0My0uMzk5LS4wOTYtLjcxLS4yLS45MTgtLjMyLS4xMjgtLjA3MS0uMjE1LS4xNTEtLjI0Ny0uMjIzYS42LjYgMCAwIDEtLjA0OC0uMjI0di0uNDA3YzAtLjE2Ny4wNjQtLjI0Ny4xODMtLjI0N3EuMDcyIDAgLjE0NC4wMjRjLjA0OC4wMTYuMTIuMDQ4LjIuMDhxLjQwOC4xODEuODc4LjI3OWMuMzE5LjA2NC42My4wOTYuOTUuMDk2LjUwMiAwIC44OTQtLjA4OCAxLjE2NS0uMjY0YS44Ni44NiAwIDAgMCAuNDE1LS43NTguNzguNzggMCAwIDAtLjIxNS0uNTU5Yy0uMTQ0LS4xNTEtLjQxNi0uMjg3LS44MDctLjQxNWwtMS4xNTctLjM2Yy0uNTgzLS4xODMtMS4wMTQtLjQ1NC0xLjI3Ny0uODEzYTEuOSAxLjkgMCAwIDEtLjQtMS4xNThxMC0uNTAyLjIxNi0uODg2Yy4xNDQtLjI1NS4zMzUtLjQ3OS41NzUtLjY1NC4yNC0uMTg0LjUxLS4zMi44My0uNDE1LjMyLS4wOTYuNjU1LS4xMzYgMS4wMDYtLjEzNi4xNzUgMCAuMzU5LjAwOC41MzUuMDMyLjE4My4wMjQuMzUuMDU2LjUxOC4wODhxLjI0LjA1OC40NTUuMTI3LjIxNi4wNzIuMzM2LjE0NGEuNy43IDAgMCAxIC4yNC4yLjQzLjQzIDAgMCAxIC4wNzEuMjYzdi4zNzVxLS4wMDIuMjU0LS4xODQuMjU2YS44LjggMCAwIDEtLjMwMy0uMDk2IDMuNjUgMy42NSAwIDAgMC0xLjUzMi0uMzExYy0uNDU1IDAtLjgxNS4wNzEtMS4wNjIuMjIzcy0uMzc1LjM4My0uMzc1LjcxYzAgLjIyNC4wOC40MTYuMjQuNTY3LjE1OS4xNTIuNDU0LjMwNC44NzcuNDRsMS4xMzQuMzU4Yy41NzQuMTg0Ljk5LjQ0IDEuMjM3Ljc2N3MuMzY3LjcwMi4zNjcgMS4xMTdjMCAuMzQzLS4wNzIuNjU1LS4yMDcuOTI2YTIuMiAyLjIgMCAwIDEtLjU4My43MDNjLS4yNDguMi0uNTQzLjM0My0uODg2LjQ0Ny0uMzYuMTExLS43MzQuMTY3LTEuMTQyLjE2N20xLjUwOSAzLjg4Yy0yLjYyNiAxLjk0LTYuNDQyIDIuOTY5LTkuNzIyIDIuOTY5LTQuNTk4IDAtOC43NC0xLjctMTEuODctNC41MjYtLjI0Ny0uMjIzLS4wMjQtLjUyNy4yNzItLjM1MSAzLjM4NCAxLjk2MyA3LjU1OSAzLjE1MyAxMS44NzcgMy4xNTMgMi45MTQgMCA2LjExNC0uNjA3IDkuMDYtMS44NTIuNDM5LS4yLjgxNC4yODcuMzgzLjYwN20xLjA5NC0xLjI0NmMtLjMzNi0uNDMtMi4yMi0uMjA3LTMuMDc0LS4xMDMtLjI1NS4wMzItLjI5NS0uMTkyLS4wNjMtLjM2IDEuNS0xLjA1MyAzLjk2Ny0uNzUgNC4yNTQtLjM5OS4yODcuMzYtLjA4IDIuODI2LTEuNDg1IDQuMDA3LS4yMTUuMTg0LS40MjMuMDg4LS4zMjctLjE1MS4zMi0uNzkgMS4wMy0yLjU3LjY5NS0yLjk5NCIvPjwvc3ZnPg==&logoColor=white)](https://aws.amazon.com/)
-[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://www.linux.org/)
-[![Networking](https://img.shields.io/badge/Networking-orange?style=for-the-badge&logo=cisco&logoColor=white)](https://en.wikipedia.org/wiki/Computer_network)
-[![Identity](https://img.shields.io/badge/Identity-red?style=for-the-badge&logo=auth0&logoColor=white)](https://en.wikipedia.org/wiki/Identity_management)
+<h1>Cloud Operations Runbook</h1>
 
-## Purpose and Scope
 
-These runbooks are designed to standardize incident response across cloud operations teams, significantly reducing Mean Time To Resolution (MTTR) by providing vetted, evidence-based diagnostic paths. The collection covers core infrastructure layers including networking, compute, identity management, and application-specific failure modes.
-
-## Runbook Architecture
-
-The repository is organized by functional infrastructure domains to facilitate rapid lookup during active incidents:
-
-- `runbooks/networking/`: DNS resolution, Security Group configurations, VPC routing, and Load Balancer health.
 - `runbooks/compute/`: VM lifecycle management, Linux system resource optimization, Disk I/O, and CPU saturation.
 - `runbooks/identity/`: IAM policy troubleshooting, permission scoping, and Service Account management.
 - `runbooks/application/`: REST API failure analysis, environment configuration, and upstream dependency timeouts.
 
-## Standardized Methodology
-
-Every runbook adheres to a rigorous, production-grade format to ensure consistency and technical accuracy:
-
-- **Context**: Detailed description of the environment, architecture, and components involved.
 - **Symptoms**: Observed errors, failed metrics, or reported system behavior.
 - **Initial Triage**: Rapid, low-impact checks to quickly isolate the primary fault domain.
 - **Investigation**: Step-by-step diagnostic procedures with specific CLI commands and observability queries.
@@ -34,16 +20,3 @@ Every runbook adheres to a rigorous, production-grade format to ensure consisten
 - **Resolution**: Clear, documented steps required to restore service integrity.
 - **Validation**: Verification procedures to confirm the fix is effective and has no side effects.
 - **Prevention**: Proposed architectural or procedural changes to eliminate the failure mode.
-
-## Contribution and Review
-
-Runbooks are living documents. They are updated following every major incident postmortem to incorporate new findings and optimized diagnostic steps. Each update undergoes a technical peer review to ensure it meets operational standards and follows a blame-free philosophy.
-
-## Repository Structure
-
-- `runbooks/`: Domain-specific troubleshooting guides and operational procedures.
-- `docs/`: General documentation on runbook maintenance and incident management best practices.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
