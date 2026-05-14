@@ -20,7 +20,7 @@ Standardized common support tasks, **reduced tribal knowledge**, and improved th
 
 Every runbook follows a standardized diagnostic template ([`TEMPLATE.md`](runbooks/TEMPLATE.md)):
 
-```
+```text
 Symptoms        → What does the failure look like?
 Initial Triage  → Rapid, low-impact checks to isolate the fault domain
 Investigation   → Step-by-step diagnostics with specific CLI commands
@@ -35,15 +35,17 @@ Prevention      → Proposed changes to eliminate the failure mode
 ## Runbook Index
 
 ### Compute
+
 | Runbook | Scenario |
-|---------|----------|
+| ------- | -------- |
 | [Disk Space Exhaustion](runbooks/compute/disk-full.md) | Root partition full — logrotate misconfiguration and uncapped journald |
 | [High CPU Process](runbooks/compute/high-cpu-process.md) | Runaway process consuming CPU and degrading host performance |
 | [Service Not Running](runbooks/compute/service-not-running.md) | Critical service down — systemd unit failure and dependency chain |
 
 ### Application
+
 | Runbook | Scenario |
-|---------|----------|
+| ------- | -------- |
 | [API Timeout (Upstream Delay)](runbooks/application/api-timeout.md) | HTTP 504s caused by third-party provider degradation |
 | [Environment Misconfiguration](runbooks/application/env-misconfig.md) | Application failure due to missing or incorrect environment variables |
 | [ELB Health Check Failure](runbooks/application/elb-health-fail.md) | Load balancer marking healthy targets as unhealthy |
@@ -55,13 +57,15 @@ Prevention      → Proposed changes to eliminate the failure mode
 | [IAM Permission Boundaries](runbooks/application/iam-boundaries.md) | Effective permissions reduced by permission boundary policies |
 
 ### Identity & Access
+
 | Runbook | Scenario |
-|---------|----------|
+| ------- | -------- |
 | [IAM Access Denied](runbooks/identity/iam-access-denied.md) | Permission errors — policy evaluation, SCP boundaries, and trust relationships |
 
 ### Networking
+
 | Runbook | Scenario |
-|---------|----------|
+| ------- | -------- |
 | [DNS Resolution Failure](runbooks/networking/dns-resolution-failure.md) | Service unreachable due to DNS misconfiguration or propagation delay |
 | [Security Group Block](runbooks/networking/security-group-block.md) | Traffic blocked by overly restrictive security group or NACL rules |
 
@@ -69,7 +73,7 @@ Prevention      → Proposed changes to eliminate the failure mode
 
 ## Triage Flowchart
 
-```
+```text
 [Start] → (External Check: Status 200?)
            |── No  → [Network / WAF Issue]
            |── Yes → (Local Check: Success?)
@@ -84,10 +88,10 @@ Prevention      → Proposed changes to eliminate the failure mode
 ## Related Repositories
 
 | Repository | Description |
-|------------|-------------|
+| ---------- | ----------- |
 | [**ops-diagnostics**](https://github.com/h-vance/ops-diagnostics) | Python & Bash diagnostic scripts for automated health verification, log analysis, and system profiling |
 | [**log-rotation-maintenance**](https://github.com/h-vance/log-rotation-maintenance) | Automated Bash scripts for log rotation, compression, and storage cleanup on Linux servers |
 
 ---
 
-*Maintained by a Technical Support Engineer focused on operational reliability and incident response.*
+Maintained by a Technical Support Engineer focused on operational reliability and incident response.
