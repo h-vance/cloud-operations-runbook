@@ -2,7 +2,7 @@
 
 > **Standardized troubleshooting paths that reduce tribal knowledge and provide repeatable, evidence-driven incident resolution.**
 
-[![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)](https://daringfireball.net/projects/markdown/)&nbsp;[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://kernel.org)&nbsp;[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com)
+[![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=Markdown&logoColor=FFFFFF)](https://daringfireball.net/projects/markdown/)&nbsp;[![Linux](https://img.shields.io/badge/Linux-222222?style=for-the-badge&logo=Linux&logoColor=FCC624)](https://kernel.org)
 
 ---
 
