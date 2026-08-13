@@ -38,9 +38,9 @@ Prevention      → Proposed changes to eliminate the failure mode
 
 | Runbook | Scenario |
 | ------- | -------- |
-| [Disk Space Exhaustion](runbooks/compute/disk-full.md) | Root partition full — logrotate misconfiguration and uncapped journald |
+| [Disk Space Exhaustion](runbooks/compute/disk-full.md) | Root partition full: logrotate misconfiguration and uncapped journald |
 | [High CPU Process](runbooks/compute/high-cpu-process.md) | Runaway process consuming CPU and degrading host performance |
-| [Service Not Running](runbooks/compute/service-not-running.md) | Critical service down — systemd unit failure and dependency chain |
+| [Service Not Running](runbooks/compute/service-not-running.md) | Critical service down: systemd unit failure and dependency chain |
 
 ### Application
 
@@ -60,7 +60,7 @@ Prevention      → Proposed changes to eliminate the failure mode
 
 | Runbook | Scenario |
 | ------- | -------- |
-| [IAM Access Denied](runbooks/identity/iam-access-denied.md) | Permission errors — policy evaluation, SCP boundaries, and trust relationships |
+| [IAM Access Denied](runbooks/identity/iam-access-denied.md) | Permission errors: policy evaluation, SCP boundaries, and trust relationships |
 
 ### Networking
 
